@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _PageBackground(
         child: SafeArea(
+          bottom: false,
           child: ListView(
             children: [
               const SizedBox(height: 10),

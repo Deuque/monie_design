@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monie_design/home_page.dart';
+import 'package:monie_design/navigation_screen.dart';
 import 'package:monie_design/theme.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: orangeF28E13),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const NavigationScreen(),
     );
   }
 }
