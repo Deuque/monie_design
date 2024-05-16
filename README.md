@@ -1,16 +1,9 @@
 # monie_design
 
-A new Flutter project.
+## Submission Preview
 
-## Getting Started
+<p float="left">
+  <img src="preview/a.gif" height="500"/>
+</p>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Test APK - https://drive.google.com/file/d/1gDz_5K6tcEsjUixI7aSm7G3EnKK0p9I4/view?usp=sharing
