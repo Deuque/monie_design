@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monie_design/home_page.dart';
+import 'package:monie_design/tabs/find_tab.dart';
+import 'package:monie_design/tabs/home_tab.dart';
 import 'package:monie_design/widgets/bottom_navigation_widget.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -16,7 +17,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        HomePage(),
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 250),
+          switchOutCurve: Curves.easeIn,
+          switchInCurve: Curves.easeOut,
+          child: switch (selectedTab) {
+            0 => const FindTab(),
+            2 => const HomeTab(),
+            _ => const SizedBox(),
+          },
+        ),
         Positioned(
           left: 0,
           right: 0,

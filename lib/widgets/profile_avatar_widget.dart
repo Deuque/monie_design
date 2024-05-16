@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:monie_design/theme.dart';
 
 class ProfileAvatarWidget extends StatefulWidget {
   const ProfileAvatarWidget({super.key});
@@ -18,9 +17,15 @@ class _ProfileAvatarWidgetState extends State<ProfileAvatarWidget>
   void initState() {
     super.initState();
     controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
     sizeAnimation = Tween(begin: 0.0, end: 47.0).animate(controller);
     controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override

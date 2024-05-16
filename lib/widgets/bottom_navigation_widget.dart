@@ -5,7 +5,9 @@ import 'package:monie_design/theme.dart';
 class BottomNavigationWidget extends StatefulWidget {
   final int selectedIndex;
   final Function(int) onSelect;
-  const BottomNavigationWidget({super.key, required this.selectedIndex, required this.onSelect});
+
+  const BottomNavigationWidget(
+      {super.key, required this.selectedIndex, required this.onSelect});
 
   @override
   State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
@@ -23,22 +25,29 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget>
     'assets/images/nav_profile.svg'
   ];
 
-
-
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 900));
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 900));
     slideAnimation = Tween(begin: const Offset(0, 2), end: const Offset(0, 0))
         .animate(CurvedAnimation(parent: controller, curve: Curves.decelerate));
     Future.delayed(
       const Duration(milliseconds: 4000),
-          () {
-        controller.forward();
+      () {
+        if (mounted) {
+          controller.forward();
+        }
       },
     );
   }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -52,20 +61,22 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget>
           ),
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              for(final (i, a) in icons.indexed)
-                Padding(
-                  padding:  EdgeInsets.only(right: i < icons.length-1 ? 12 : 0),
-                  child: GestureDetector(
-                      onTap: (){
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                for (final (i, a) in icons.indexed)
+                  Padding(
+                    padding:
+                        EdgeInsets.only(right: i < icons.length - 1 ? 12 : 0),
+                    child: GestureDetector(
+                      onTap: () {
                         widget.onSelect(i);
                       },
-                      child: _NavIcon(selected: i == widget.selectedIndex, assetPath: a),),
-                ),
-            ]
-          ),
+                      child: _NavIcon(
+                          selected: i == widget.selectedIndex, assetPath: a),
+                    ),
+                  ),
+              ]),
         ),
       ),
     );

@@ -31,7 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1
-  animated_text_kit: ^4.2.2
+
+  #--- Fun fact, i made this package, you can check it out ---
+  overlay_tooltip: ^0.2.3
 
 
   # The following adds the Cupertino Icons font to your application.

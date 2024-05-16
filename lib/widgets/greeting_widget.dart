@@ -1,10 +1,7 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monie_design/theme.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 class UserGreetingWidget extends StatefulWidget {
   const UserGreetingWidget({super.key});
@@ -25,28 +22,50 @@ class _UserGreetingWidgetState extends State<UserGreetingWidget>
   @override
   void initState() {
     super.initState();
-    controller1 =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 900));
+    controller1 = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 900));
     controller2 = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 800));
+        vsync: this, duration: const Duration(milliseconds: 800));
     controller3 = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 800));
-    animation =
-        Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(CurvedAnimation(parent: controller2,curve: Curves.decelerate));
-    animation2 =
-        Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(CurvedAnimation(parent: controller3,curve: Curves.decelerate));
+        vsync: this, duration: const Duration(milliseconds: 800));
+    animation = Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
+        .animate(
+            CurvedAnimation(parent: controller2, curve: Curves.decelerate));
+    animation2 = Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
+        .animate(
+            CurvedAnimation(parent: controller3, curve: Curves.decelerate));
     Future.delayed(
-      const Duration(milliseconds: 1100),
-      controller1.forward,
+      const Duration(milliseconds: 900),
+      () {
+        if (mounted) {
+          controller1.forward();
+        }
+      },
     );
     Future.delayed(
       const Duration(milliseconds: 1400),
-      controller2.forward,
+      () {
+        if (mounted) {
+          controller2.forward();
+        }
+      },
     );
     Future.delayed(
       const Duration(milliseconds: 1500),
-      controller3.forward,
+      () {
+        if (mounted) {
+          controller3.forward();
+        }
+      },
     );
+  }
+
+  @override
+  void dispose() {
+    controller1.dispose();
+    controller2.dispose();
+    controller3.dispose();
+    super.dispose();
   }
 
   @override
@@ -64,6 +83,7 @@ class _UserGreetingWidgetState extends State<UserGreetingWidget>
                 style: TextStyle(
                   fontSize: 20,
                   color: greyA5957E,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             );
@@ -103,5 +123,3 @@ class _UserGreetingWidgetState extends State<UserGreetingWidget>
     );
   }
 }
-
-

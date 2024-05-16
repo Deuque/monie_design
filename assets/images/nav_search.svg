@@ -1,6 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="512px" height="512px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g><path style="opacity:0.994" fill="#000000" d="M 195.5,4.5 C 266.138,1.08672 324.638,25.7534 371,78.5C 416.787,136.766 429.787,201.766 410,273.5C 392.556,326.274 359.723,366.441 311.5,394C 244.336,428.274 177.336,427.941 110.5,393C 47.749,355.717 12.5823,300.55 5,227.5C 1.92565,141.466 36.759,75.9658 109.5,31C 136.477,16.2625 165.144,7.42912 195.5,4.5 Z"/></g>
-<g><path style="opacity:0.972" fill="#000000" d="M 405.5,367.5 C 437.465,398.965 469.299,430.632 501,462.5C 509.737,477.168 507.904,490.335 495.5,502C 484.833,508 474.167,508 463.5,502C 431.5,470 399.5,438 367.5,406C 374.333,399.833 381.167,393.667 388,387.5C 394.042,380.962 399.875,374.295 405.5,367.5 Z"/></g>
-</svg>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" id="search-alt-2" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="secondary" d="M21,22a1,1,0,0,1-.71-.29L16,17.37A1,1,0,0,1,17.37,16l4.34,4.34a1,1,0,0,1,0,1.42A1,1,0,0,1,21,22Z" style="fill: rgb(44, 169, 188);"></path><circle id="primary" cx="11" cy="11" r="9" style="fill: rgb(0, 0, 0);"></circle></svg>

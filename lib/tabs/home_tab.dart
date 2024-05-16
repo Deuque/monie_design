@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:monie_design/theme.dart';
 import 'package:monie_design/widgets/current_location_widget.dart';
@@ -9,14 +8,14 @@ import 'package:monie_design/widgets/houses_display_widget.dart';
 import 'package:monie_design/widgets/offers_widget.dart';
 import 'package:monie_design/widgets/profile_avatar_widget.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeTab extends StatefulWidget {
+  const HomeTab({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeTab> createState() => _HomeTabState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +23,10 @@ class _HomePageState extends State<HomePage> {
         child: SafeArea(
           bottom: false,
           child: ListView(
-            children: [
-              const SizedBox(height: 10),
+            children: const [
+              SizedBox(height: 10),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
                     Expanded(child: CurrentLocationWidget()),
@@ -36,17 +34,17 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 35),
+              SizedBox(height: 35),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: UserGreetingWidget(),
               ),
-              const SizedBox(height: 35),
+              SizedBox(height: 35),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:  EdgeInsets.symmetric(horizontal: 20),
                 child: OffersWidget(),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               HousesDisplayWidget(),
             ],
           ),

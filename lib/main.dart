@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:monie_design/home_page.dart';
+import 'package:monie_design/tabs/home_tab.dart';
 import 'package:monie_design/navigation_screen.dart';
 import 'package:monie_design/theme.dart';
 

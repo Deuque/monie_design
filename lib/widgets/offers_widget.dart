@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monie_design/theme.dart';
 
 class OffersWidget extends StatefulWidget {
@@ -22,10 +19,10 @@ class _OffersWidgetState extends State<OffersWidget>
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 800));
     controller2 = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1500));
+        vsync: this, duration: const Duration(milliseconds: 1500));
     sizeAnimation =
         CurvedAnimation(parent: controller, curve: Curves.decelerate);
     buyCountAnimation = Tween(begin: 0.0, end: 1034.0).animate(controller2);
@@ -33,10 +30,19 @@ class _OffersWidgetState extends State<OffersWidget>
     Future.delayed(
       const Duration(milliseconds: 1650),
       () {
-        controller.forward();
-        controller2.forward();
+        if(mounted) {
+          controller.forward();
+          controller2.forward();
+        }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    controller2.dispose();
+    super.dispose();
   }
 
   @override
@@ -61,12 +67,11 @@ class _OffersWidgetState extends State<OffersWidget>
             scale: sizeAnimation,
             child: AnimatedBuilder(
                 animation: buyCountAnimation,
-                builder: (context,_) {
-                return _RentCountView(
-                  rentCountAnimation.value,
-                );
-              }
-            ),
+                builder: (context, _) {
+                  return _RentCountView(
+                    rentCountAnimation.value,
+                  );
+                }),
           ),
         ),
       ],
@@ -88,7 +93,7 @@ class _BuyCountView extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10),
-            FittedBox(
+            const FittedBox(
               child: Text(
                 'Buy',
                 maxLines: 1,
@@ -102,7 +107,7 @@ class _BuyCountView extends StatelessWidget {
               child: Text(
                 splitText(buyCount.toStringAsFixed(0)),
                 maxLines: 1,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
@@ -110,7 +115,7 @@ class _BuyCountView extends StatelessWidget {
               ),
             ),
             // const SizedBox(height: 10),
-            FittedBox(
+            const FittedBox(
               child: Text(
                 'Offers',
                 maxLines: 1,
@@ -145,7 +150,7 @@ class _RentCountView extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10),
-            FittedBox(
+            const FittedBox(
               child: Text(
                 'Rent',
                 maxLines: 1,
@@ -159,7 +164,7 @@ class _RentCountView extends StatelessWidget {
               child: Text(
                 splitText(rentCount.toStringAsFixed(0)),
                 maxLines: 1,
-                style: TextStyle(
+                style: const TextStyle(
                   color: greyA5957E,
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
@@ -167,7 +172,7 @@ class _RentCountView extends StatelessWidget {
               ),
             ),
             // const SizedBox(height: 10),
-            FittedBox(
+            const FittedBox(
               child: Text(
                 'Offers',
                 maxLines: 1,
@@ -184,9 +189,9 @@ class _RentCountView extends StatelessWidget {
   }
 }
 
-String splitText(String text){
-  if(text.length < 4){
+String splitText(String text) {
+  if (text.length < 4) {
     return text;
   }
-  return '${text.substring(0,1)} ${text.substring(1)}';
+  return '${text.substring(0, 1)} ${text.substring(1)}';
 }

@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monie_design/theme.dart';
 
 class HousesDisplayWidget extends StatefulWidget {
@@ -19,16 +19,24 @@ class _HousesDisplayWidgetState extends State<HousesDisplayWidget>
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
-    slideAnimation = Tween(begin: Offset(0, 2), end: Offset(0, 0))
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1000));
+    slideAnimation = Tween(begin: const Offset(0, 2), end: const Offset(0, 0))
         .animate(CurvedAnimation(parent: controller, curve: Curves.decelerate));
     Future.delayed(
       const Duration(milliseconds: 2300),
       () {
-        controller.forward();
+        if (mounted) {
+          controller.forward();
+        }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -40,11 +48,11 @@ class _HousesDisplayWidgetState extends State<HousesDisplayWidget>
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: const Padding(
-          padding: EdgeInsets.all(6),
+        child:  Padding(
+          padding: const EdgeInsets.all(6),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: double.infinity,
                 height: 200,
                 child: _HouseView(
@@ -52,8 +60,8 @@ class _HousesDisplayWidgetState extends State<HousesDisplayWidget>
                   houseLocation: 'Gladkova St., 25',
                 ),
               ),
-              SizedBox(height: 8),
-              Row(
+              const SizedBox(height: 8),
+              const Row(
                 children: [
                   Expanded(
                     child: SizedBox(
@@ -96,7 +104,9 @@ class _HousesDisplayWidgetState extends State<HousesDisplayWidget>
                   )
                 ],
               ),
+               SizedBox(height: MediaQuery.paddingOf(context).bottom+95)
             ],
+
           ),
         ),
       ),
@@ -123,7 +133,7 @@ class _HouseViewState extends State<_HouseView>
   void initState() {
     super.initState();
     controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
+        vsync: this, duration: const Duration(milliseconds: 1000));
     scaleAnimation = CurvedAnimation(
       parent: controller,
       curve: const Interval(
@@ -143,9 +153,17 @@ class _HouseViewState extends State<_HouseView>
     Future.delayed(
       const Duration(milliseconds: 3000),
       () {
-        controller.forward();
+        if(mounted) {
+          controller.forward();
+        }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -216,11 +234,11 @@ class _HouseViewState extends State<_HouseView>
                       child: Align(
                         alignment: Alignment.centerRight,
                         child: Padding(
-                          padding: EdgeInsets.all(2),
+                          padding: const EdgeInsets.all(2),
                           child: CircleAvatar(
                             radius: height / 2,
                             backgroundColor: Colors.white,
-                            child: Icon(
+                            child: const Icon(
                               Icons.chevron_right_sharp,
                               size: 19,
                               color: greyA5957E,
